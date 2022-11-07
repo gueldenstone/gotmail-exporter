@@ -8,4 +8,4 @@ pipeline:
       platforms: "linux/amd64"
       auto_tag: true
     when:
-      event: push
+      event: [push, tag]
