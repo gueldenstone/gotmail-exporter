@@ -5,6 +5,7 @@ go 1.19
 require (
 	github.com/AfterShip/email-verifier v1.3.0
 	github.com/go-kit/log v0.2.0
+	github.com/pborman/getopt/v2 v2.1.0
 	github.com/prometheus/client_golang v1.13.1
 	github.com/prometheus/common v0.37.0
 )
