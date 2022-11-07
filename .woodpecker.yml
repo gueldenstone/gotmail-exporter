@@ -1,0 +1,11 @@
+pipeline:
+  build:
+    image: woodpeckerci/plugin-docker-buildx
+    group: docker
+    secrets: [docker_username, docker_password]
+    settings:
+      repo: gueldenstone/gotmail_exporter
+      platforms: "linux/amd64"
+      auto_tag: true
+    when:
+      event: push
