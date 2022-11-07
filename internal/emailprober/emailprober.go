@@ -138,6 +138,8 @@ func (p *EmailProber) probeEmail(ctx context.Context, target string, registry *p
 	probeEmailReachable.Set(func() float64 {
 		if res.Reachable == "yes" {
 			return 1
+		} else if res.Reachable == "unknown" && res.SMTP.CatchAll && !res.SMTP.FullInbox && res.SMTP.HostExists && res.HasMxRecords {
+			return 1
 		} else {
 			return 0
 		}
