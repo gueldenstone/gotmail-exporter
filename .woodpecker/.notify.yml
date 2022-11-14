@@ -5,7 +5,7 @@ pipeline:
       url:
         from_secret: shoutrrr_url
       title: "gotmail_exporter deployed"
-      message: "Built and deployed ${CI_COMMIT_LINK} from ${CI_COMMIT_AUTHOR} with ${BUILD_STATUS}\n\n${CI_BUILD_LINK}"
+      message: "${CI_BUILD_STATUS}: '${CI_COMMIT_MESSAGE}' from ${CI_COMMIT_AUTHOR}\n\n${CI_BUILD_LINK}"
 depends_on:
   - build
 runs_on: [success, failure]
