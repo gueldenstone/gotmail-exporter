@@ -8,10 +8,3 @@ pipeline:
       auto_tag: true
     when:
       event: [push, tag]
-  notify:
-    image: gueldenstone/woodpecker-shoutrrr
-    settings:
-      url:
-        from_secret: shoutrrr_url
-      title: "gotmail_exporter deployed"
-      message: "Deployed changes: ${CI_COMMIT_AUTHOR} with ${CI_BUILD_STATUS}"
