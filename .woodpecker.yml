@@ -1,7 +1,6 @@
 pipeline:
   build:
     image: woodpeckerci/plugin-docker-buildx
-    group: docker
     secrets: [docker_username, docker_password]
     settings:
       repo: gueldenstone/gotmail_exporter
@@ -9,3 +8,10 @@ pipeline:
       auto_tag: true
     when:
       event: [push, tag]
+  notify:
+    image: gueldenstone/woodpecker-shoutrrr
+    settings:
+      url:
+        from_secret: shoutrrr_url
+      title: "gotmail_exporter deployed"
+      message: "testing the new plugin"
