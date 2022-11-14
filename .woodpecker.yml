@@ -14,4 +14,4 @@ pipeline:
       url:
         from_secret: shoutrrr_url
       title: "gotmail_exporter deployed"
-      message: "Deployed changes: $CI_COMMIT_MESSAGE from $CI_COMMIT_AUTHOR with $CI_BUILD_STATUS"
+      message: "Deployed changes: ${CI_COMMIT_AUTHOR} with ${CI_BUILD_STATUS}"
