@@ -20,12 +20,19 @@ func init() {
 }
 
 var (
-	logLevel = getopt.StringLong("log", 'l', "info", "logLevel")
+	logLevel  = getopt.StringLong("log", 'l', "info", "logLevel")
+	logLevels = map[string]level.Option{
+		"debug": level.AllowDebug(),
+		"info":  level.AllowInfo(),
+		"warn":  level.AllowWarn(),
+		"error": level.AllowWarn(),
+	}
 )
 
 func main() {
 	promlogConfig := &promlog.Config{}
 	logger := promlog.New(promlogConfig)
+	logger = level.NewFilter(logger, logLevels[*logLevel])
 	prober := emailProber.NewEmailProber()
 	level.Info(logger).Log("msg", "Starting gotmail_exportert", "version", version.Info(), "logLevel", *logLevel)
 	setLogLevel(*logLevel)
