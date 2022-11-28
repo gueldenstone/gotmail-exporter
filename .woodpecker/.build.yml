@@ -6,7 +6,5 @@ pipeline:
       repo: gueldenstone/gotmail_exporter
       platforms: "linux/amd64"
       auto_tag: true
-    environment:
-      - BUILD_STATUS=$CI_BUILD_STATUS
     when:
       event: [push, tag]
